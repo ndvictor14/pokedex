@@ -26,9 +26,10 @@ export const SearchField = ({ onSearch, value }: SearchFieldProps) => {
                 sx={{ ml: 1, flex: 1 }}
                 placeholder="Search"
                 onChange={updateQuery}
-                inputProps={{ 'aria-label': 'search' }}
+                value={query}
+                inputProps={{ 'aria-label': 'search', 'data-cy': "search-input" }}
             />
-            <IconButton type="button" sx={{ p: '10px' }} aria-label="search" onClick={handleSearch}>
+            <IconButton data-cy="search-button" type="button" sx={{ p: '10px' }} aria-label="search" onClick={handleSearch}>
                 <Search />
             </IconButton>
         </Paper>

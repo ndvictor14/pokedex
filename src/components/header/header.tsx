@@ -73,6 +73,7 @@ export const Header = () => {
 
                     <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
                         <IconButton
+                            data-cy="mobile-menu"
                             size="large"
                             aria-label="account of current user"
                             aria-controls="menu-appbar"
@@ -147,7 +148,7 @@ export const Header = () => {
 
                     <Box sx={{ flexGrow: 0 }}>
                         <Tooltip title="Open settings">
-                            <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                            <IconButton data-cy="profile-button" onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                                 <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
                             </IconButton>
                         </Tooltip>

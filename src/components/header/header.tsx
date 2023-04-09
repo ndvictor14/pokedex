@@ -1,6 +1,6 @@
 import * as React from 'react';
-import { AppBar, Avatar, Box, Button, Container, Toolbar, IconButton, Menu, MenuItem, Tooltip, Typography } from '@mui/material';
-import { Menu as MenuIcon } from '@mui/icons-material';
+import { AppBar, Box, Button, Container, Toolbar, IconButton, Menu, MenuItem, Tooltip, Typography } from '@mui/material';
+import { Coffee, Menu as MenuIcon } from '@mui/icons-material';
 import { useState } from 'react';
 import Image from 'next/image';
 import logo from '../../../public/logo.png';
@@ -15,25 +15,16 @@ const pages: Page[] = [
     { name: 'Simulator', route: '/simulator' },
     { name: 'Credits', route: '/credits' }
 ];
-const settings = ['Profile', 'Account', 'Logout'];
 
 export const Header = () => {
     const [anchorElNav, setAnchorElNav] = useState<null | undefined | HTMLElement>(null);
-    const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(null);
     const router = useRouter();
     const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
         setAnchorElNav(event.currentTarget);
     };
-    const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
-        setAnchorElUser(event.currentTarget);
-    };
 
     const handleCloseNavMenu = () => {
         setAnchorElNav(null);
-    };
-
-    const handleCloseUserMenu = () => {
-        setAnchorElUser(null);
     };
 
     const handlePageClick = ({ e, page }: { e: React.MouseEvent<HTMLElement>, page: Page }) => {
@@ -147,33 +138,11 @@ export const Header = () => {
                     </Box>
 
                     <Box sx={{ flexGrow: 0 }}>
-                        <Tooltip title="Open settings">
-                            <IconButton data-cy="profile-button" onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
-                            </IconButton>
+                        <Tooltip title="Send via PayPal">
+                            <Button sx={{ color: '#fff' }} type="link" href="https://paypal.me/ndvictor14" target="_ndvictor14paypal">
+                                <Coffee /> <Box sx={{ display: { xs: 'none', sm: 'block' } }}>&nbsp;Buy Me a Coffee</Box>
+                            </Button>
                         </Tooltip>
-                        <Menu
-                            sx={{ mt: '45px' }}
-                            id="menu-appbar"
-                            anchorEl={anchorElUser}
-                            anchorOrigin={{
-                                vertical: 'top',
-                                horizontal: 'right',
-                            }}
-                            keepMounted
-                            transformOrigin={{
-                                vertical: 'top',
-                                horizontal: 'right',
-                            }}
-                            open={Boolean(anchorElUser)}
-                            onClose={handleCloseUserMenu}
-                        >
-                            {settings.map((setting) => (
-                                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                                    <Typography textAlign="center">{setting}</Typography>
-                                </MenuItem>
-                            ))}
-                        </Menu>
                     </Box>
                 </Toolbar>
             </Container>

@@ -12,10 +12,10 @@ export default async function handler(req: { query: any; variables: any; }, res:
     return result.json();
 }
 const getQuery = `
-    query pokemon($limit: Int) {
-        pokemon_v2_pokemon(order_by: {id: asc}, limit: $limit) {
+    query pokemon($limit: Int, $offset: Int) {
+        pokemon_v2_pokemon(order_by: {id: asc}, limit: $limit, offset: $offset) {
             pokemon_species_id
-            id
+            idd
             name
         }
          pokemon_v2_pokemon_aggregate {
@@ -25,12 +25,12 @@ const getQuery = `
          }
     }
 `;
-export const getPokemon = async ({ limit = 24 }: { limit?: number } = {}) => {
+export const getPokemon = async ({ limit = 24, page = 1 }: { limit?: number, page?: number } = {}) => {
     const result = await fetch("https://beta.pokeapi.co/graphql/v1beta", {
         method: "POST",
         body: JSON.stringify({
             query: getQuery,
-            variables: { limit },
+            variables: { limit, offset: (page - 1) * limit },
             operationName: 'pokemon'
         })
     });

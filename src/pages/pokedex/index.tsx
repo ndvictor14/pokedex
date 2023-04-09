@@ -1,12 +1,17 @@
 import Head from 'next/head';
-import { PokedexFilters } from '@/components/pokedex-filters/pokedex-filters';
 import { getPokemon } from '@/pages/api/pokemon';
 import { PokemonPage } from '@/types/pokemon-page.type';
 import { Pokedex } from '@/components/pokedex/pokedex';
 import React from 'react';
 import { Box } from '@mui/material';
+import { GetServerSideProps } from 'next';
 
-export const PokedexPage = ({ error, pokemon }: { error?: any, pokemon?: PokemonPage }) => {
+type PokedexPageProps = {
+    error?: any,
+    pokemon?: PokemonPage | null
+};
+
+export const PokedexPage = ({ error, pokemon }: PokedexPageProps) => {
     return (
         <>
             <Head>
@@ -16,7 +21,8 @@ export const PokedexPage = ({ error, pokemon }: { error?: any, pokemon?: Pokemon
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <Box my={2} mx={1}>
-                {!pokemon && <div>No Pokemon found!</div>}
+                {error && <div>{error}</div>}
+                {!(error || pokemon) && <div>No Pokemon found!</div>}
                 {pokemon && <Pokedex pokemon={pokemon} />}
             </Box>
         </>
@@ -28,15 +34,21 @@ export default PokedexPage;
 
 PokedexPage.displayName = 'PokedexPage';
 
-export async function getServerSideProps() {
+export const getServerSideProps: GetServerSideProps<PokedexPageProps> = async (context) => {
+    const { query } = context;
+    const { page = 1 } = query || undefined;
     let error = null;
     let pokemon: PokemonPage | null = null;
     try {
-        pokemon = await getPokemon();
+        pokemon = await getPokemon({ page: +page });
     } catch (e) {
         error = "Failed to fetch Pokemon.";
     }
+    const data: PokedexPageProps = {
+        error,
+        pokemon
+    };
 
     // Pass data to the page via props
-    return { props: { pokemon, error  } }
+    return { props: data }
 }

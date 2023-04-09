@@ -1,11 +1,12 @@
 import React from 'react';
-import { Card, Container, Grid, List, ListItem, ListItemText, Typography } from '@mui/material';
+import { List, ListItem, ListItemText, Typography } from '@mui/material';
+import Grid from '@mui/material/Unstable_Grid2';
 
 export const CreditsPage = () =>{
 
     return (
         <Grid container>
-            <Grid item m={2}>
+            <Grid m={2}>
                     <Typography variant="h5">
                         Purpose
                     </Typography>
@@ -16,7 +17,7 @@ export const CreditsPage = () =>{
                         corresponding parties have been listed below for recognition.
                     </Typography>
             </Grid>
-            <Grid item m={2}>
+            <Grid m={2}>
                 <Typography variant="h5">
                     Contents
                 </Typography>
@@ -55,16 +56,16 @@ export const CreditsPage = () =>{
                     </List>
                 </Typography>
             </Grid>
-            <Grid item m={2}>
+            <Grid m={2}>
                 <Typography variant="h5">
                     Third Party Recognitions
                 </Typography>
                 <List>
                     <ListItem>
                         <ListItemText
-                            primary="Pokemon API"
+                            primary="PokéAPI"
                             secondary={(<span>This is an essential service used for the application.
-                        If you&apos;re interested in what the API has to offer, check them out!</span>)}
+                                If you&apos;re interested in what the API has to offer, <a href="https://pokeapi.co/" target="pokeapi">check them out!</a></span>)}
                         />
                     </ListItem>
                 </List>

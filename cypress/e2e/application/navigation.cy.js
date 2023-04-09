@@ -59,8 +59,8 @@ context('Navigation', () => {
                 });
             });
 
-            it('displays the user profile menu', () => {
-                cy.get('[data-cy=profile-button]').should('exist');
+            it('displays the by me a coffee link', () => {
+                cy.get('[data-cy=coffee]').should('exist');
             });
         });
     })

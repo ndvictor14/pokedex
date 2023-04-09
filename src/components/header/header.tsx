@@ -12,7 +12,6 @@ type Page = {
 }
 const pages: Page[] = [
     { name: 'Home', route: '/pokedex' },
-    { name: 'Simulator', route: '/simulator' },
     { name: 'Credits', route: '/credits' }
 ];
 
@@ -139,7 +138,7 @@ export const Header = () => {
 
                     <Box sx={{ flexGrow: 0 }}>
                         <Tooltip title="Send via PayPal">
-                            <Button sx={{ color: '#fff' }} type="link" href="https://paypal.me/ndvictor14" target="_ndvictor14paypal">
+                            <Button data-cy="coffee" sx={{ color: '#fff' }} type="link" href="https://paypal.me/ndvictor14" target="_ndvictor14paypal">
                                 <Coffee /> <Box sx={{ display: { xs: 'none', sm: 'block' } }}>&nbsp;Buy Me a Coffee</Box>
                             </Button>
                         </Tooltip>

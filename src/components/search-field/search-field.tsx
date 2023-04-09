@@ -13,18 +13,20 @@ export const SearchField = ({ onSearch, value }: SearchFieldProps) => {
         setQuery(e.target.value);
     };
 
-    const handleSearch = () => {
+    const handleSearch = (e: React.MouseEvent<HTMLElement>) => {
+        e.preventDefault();
         onSearch({ query });
     }
 
     return (
         <Paper
             component="form"
-            sx={{ p: '2px 4px', display: 'flex', alignItems: 'center', width: 400 }}
+            sx={{ p: '2px 4px', display: 'flex', alignItems: 'center' }}
         >
             <InputBase
                 sx={{ ml: 1, flex: 1 }}
                 placeholder="Search"
+                fullWidth
                 onChange={updateQuery}
                 value={query}
                 inputProps={{ 'aria-label': 'search', 'data-cy': "search-input" }}

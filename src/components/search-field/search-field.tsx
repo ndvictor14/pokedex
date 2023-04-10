@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { IconButton, InputBase, Paper } from '@mui/material';
-import { Search } from '@mui/icons-material';
+import Search from '@mui/icons-material/Search';
 
 type SearchFieldProps = {
     onSearch: ({ query }: { query: string }) => void;

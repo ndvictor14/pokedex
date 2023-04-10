@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box } from '@mui/material';
 import Image from 'next/image';
-import { QuestionMark } from '@mui/icons-material';
+import QuestionMark from '@mui/icons-material/QuestionMark';
 
 const IMAGE_BASE_PATH = '/media';
 export const PokemonCardImage = ({ sprites, priority = false }: { sprites: any, priority?: boolean }) => {

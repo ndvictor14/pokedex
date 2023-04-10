@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { AppBar, Box, Button, Container, Toolbar, IconButton, Menu, MenuItem, Tooltip, Typography } from '@mui/material';
-import { Coffee, Menu as MenuIcon } from '@mui/icons-material';
+import Coffee from '@mui/icons-material/Coffee';
+import MenuIcon from '@mui/icons-material/Menu';
 import { useState } from 'react';
 import Image from 'next/image';
 import logo from '../../../public/logo.png';

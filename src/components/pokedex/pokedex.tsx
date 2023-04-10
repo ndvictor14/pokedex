@@ -17,10 +17,10 @@ export const Pokedex = ({ pokemon }: { pokemon: PokemonPage }) => {
     return (
         <div>
             <Grid container spacing={2} mt={2}>
-                {pokemon?.results?.map((pokemon) => {
+                {pokemon?.results?.map((pokemon, pokemonIndex) => {
                     return (
                         <Grid xs={12} sm={6} md={4} lg={3} key={pokemon.id}>
-                            <PokemonCard {...pokemon} />
+                            <PokemonCard priority={pokemonIndex <= 12} pokemon={pokemon} />
                         </Grid>
                     )
                 })

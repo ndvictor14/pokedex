@@ -5,7 +5,7 @@ import Grid from '@mui/material/Unstable_Grid2';
 export const CreditsPage = () =>{
 
     return (
-        <Grid container>
+        <Grid container direction="column">
             <Grid m={2}>
                     <Typography variant="h5">
                         Purpose

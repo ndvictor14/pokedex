@@ -6,6 +6,7 @@ It showcases the following technologies:
 - GQL (calls PokeAPI's Graph)
 - SSR (rendered server side for a fast user experience as well as the valuable SEO)
 - Using React MUI for a consistent UI 
+- Using query paramaters for pagination
 - Performant (check out Lighthouse to view the Web Vital Scores ;))
 - Simple Cyprus E2E and Component Testing
 

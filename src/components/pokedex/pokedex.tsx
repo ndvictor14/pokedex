@@ -3,7 +3,7 @@ import { PokemonPage } from '@/types/pokemon-page.type';
 import { Pagination } from '@mui/material';
 import Grid from '@mui/material/Unstable_Grid2';
 import { useRouter } from 'next/router';
-import { PokemonCard } from '../../../pokemon-card/pokemon-card';
+import { PokemonCard } from '../pokemon-card/pokemon-card';
 
 export const Pokedex = ({ pokemon }: { pokemon: PokemonPage }) => {
     const pages = Math.ceil(pokemon.total / 24);

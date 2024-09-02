@@ -66,7 +66,7 @@ export const getPokemon = async ({ limit = 24, page = 1 }: { limit?: number, pag
             id: pokemonId,
             name: pokemonName,
             types,
-            sprites: JSON.parse(sprites || {})
+            sprites: sprites || {}
         }
     })
     const { aggregate = {} } = ags;

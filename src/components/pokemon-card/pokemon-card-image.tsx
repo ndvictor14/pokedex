@@ -17,7 +17,7 @@ export const PokemonCardImage = ({ sprites, priority = false }: { sprites: any, 
 
   return (
       <Box>
-        <Image src={defaultFront.replace(IMAGE_BASE_PATH, '')} alt="Pokemon Image" width={100} height={100} priority={priority} />
+        <Image unoptimized src={defaultFront.replace(IMAGE_BASE_PATH, '')} alt="Pokemon Image" width={100} height={100} priority={priority} />
       </Box>
   );
 };

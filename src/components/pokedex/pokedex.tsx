@@ -16,16 +16,17 @@ export const Pokedex = ({ pokemon }: { pokemon: PokemonPage }) => {
 
     return (
         <div>
-            <Grid container spacing={2} mt={2}>
-                {pokemon?.results?.map((pokemon, pokemonIndex) => {
-                    return (
-                        <Grid xs={12} sm={6} md={4} lg={3} key={pokemon.id}>
-                            <PokemonCard priority={pokemonIndex <= 12} pokemon={pokemon} />
-                        </Grid>
-                    )
-                })
-                }
-
+            <Grid container spacing={2} mt={2} direction="column">
+                <Grid container>
+                    {pokemon?.results?.map((pokemon, pokemonIndex) => {
+                        return (
+                            <Grid xs={12} sm={6} md={4} lg={3} key={pokemon.id}>
+                                <PokemonCard priority={pokemonIndex <= 12} pokemon={pokemon} />
+                            </Grid>
+                        )
+                    })
+                    }
+                </Grid>
                 <Grid alignItems="center" mt={2} m="auto">
                     <Pagination count={pages || 0} page={+page} onChange={handlePagination}/>
                 </Grid>
